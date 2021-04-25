@@ -55,7 +55,7 @@ function App  ()  {
         <div className="search-books">
           <div className="search-books-bar">
           <Link to="/"> 
-          <button className="close-search" onClick={() => setShowSearchPage('list') }>Close</button>
+          <button className="close-search" onClick={() => {setShowSearchPage('list') ; setBooks([])} }>Close</button>
            </Link>
             <div className="search-books-input-wrapper">
               {/*

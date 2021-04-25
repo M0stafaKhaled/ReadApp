@@ -36,9 +36,9 @@ const Book = ({Books , setCurrently , setWantToRead , setRead})=>{
                           <div  className="book-top">
                             <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${ p.imageLinks  ?  p.imageLinks.smallThumbnail : '' })` }}></div>
                             <div className="book-shelf-changer">
-                              <select onChange ={(e) => {return statusHandler(e,p)} } >
+                              <select value={p.shelf} onChange ={(e) => {return statusHandler(e,p)} } >
                                 <option value="move" disabled>Move to...</option>
-                                <option value="currentlyReading"> currently Reading </option>
+                                <option  value="currentlyReading"> currently Reading </option>
                                 <option value="wantToRead">Want to Read</option>
                                 <option value="read">Read</option>
                                 <option value="none">None</option>
