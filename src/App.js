@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState , } from 'react'
+import {Link} from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
+
 import Book from './components/Book'
 import './App.css'
 
@@ -39,7 +41,7 @@ function App  ()  {
                         setRead(read)
               }
         
-      const[showSearchPage , setShowSearchPage] = useState(false);
+      const[showSearchPage , setShowSearchPage] = useState('list');
       const[Books , setBooks] = useState([]); 
       const[Currently ,setCurrently] = useState([]);
       const[WantToRead , setWantToRead] = useState([]);
@@ -49,10 +51,12 @@ function App  ()  {
     }, []) // <-- empty dependency array
     return (
       <div className="app">
-      {showSearchPage ? (
+      {showSearchPage === 'serch' ? (
         <div className="search-books">
           <div className="search-books-bar">
-            <button className="close-search" onClick={() => setShowSearchPage(false) }>Close</button>
+          <Link to="/"> 
+          <button className="close-search" onClick={() => setShowSearchPage('list') }>Close</button>
+           </Link>
             <div className="search-books-input-wrapper">
               {/*
                 NOTES: The search from BooksAPI is limited to a particular set of search terms.
@@ -130,7 +134,21 @@ function App  ()  {
             </div>
           </div>
           <div className="open-search">
-            <button onClick={() => setShowSearchPage(true)}>Add a book</button>
+            
+         
+            <Link to="/serch">
+
+            <button  onClick={() =>{ 
+                  
+                  setShowSearchPage("serch")
+                   }}> 
+               Add a book
+               </button>
+
+            </Link>
+            
+             
+              {/* <a   href="serch" onClick={()=>setShowSearchPage('serch')}>d </a> */}
           </div>
         </div>
       )}

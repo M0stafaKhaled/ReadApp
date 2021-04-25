@@ -34,9 +34,9 @@ const Book = ({Books , setCurrently , setWantToRead , setRead})=>{
                 <li key={p.id}>
                   <div className="book">
                           <div  className="book-top">
-                            <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${ p.imageLinks.smallThumbnail})` }}></div>
+                            <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${ p.imageLinks  ?  p.imageLinks.smallThumbnail : '' })` }}></div>
                             <div className="book-shelf-changer">
-                              <select onClick ={(e) => {return statusHandler(e,p)} } >
+                              <select onChange ={(e) => {return statusHandler(e,p)} } >
                                 <option value="move" disabled>Move to...</option>
                                 <option value="currentlyReading"> currently Reading </option>
                                 <option value="wantToRead">Want to Read</option>
