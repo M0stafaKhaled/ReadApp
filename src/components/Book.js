@@ -1,7 +1,7 @@
 import React from 'react'; 
 import { update } from '../BooksAPI';
 import * as BooksAPI from '../BooksAPI'
-const Book = ({Books , setCurrently , setWantToRead , setRead})=>{
+const Book = ({Books , setCurrently , setWantToRead , setRead , setBooks})=>{
   
   const grapall = async()=>{
     const l=  await BooksAPI.getAll();
