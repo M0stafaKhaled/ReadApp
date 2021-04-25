@@ -5,6 +5,9 @@ const Book = ({Books , setCurrently , setWantToRead , setRead})=>{
   
   const grapall = async()=>{
     const l=  await BooksAPI.getAll();
+    if(l.error){
+      setBooks([]);
+    }
   const current =  l.filter(book => 
      book.shelf === "currentlyReading"
       ) 
