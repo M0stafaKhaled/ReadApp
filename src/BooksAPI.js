@@ -51,3 +51,9 @@ export const search = (query) =>
   export const searchP = (query) =>
     axios.post(`${api}/search`, { query:query }, { headers })
     .then(response =>response.data.books)
+
+    export const getP = (bookId) =>
+     axios.get(`${api}/books/${bookId}`, { headers })
+    // .then(res => res.json() )
+    .then(response =>response.data.book)
+   

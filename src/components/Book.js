@@ -29,6 +29,21 @@ const Book = ({Books , setCurrently , setWantToRead , setRead , setBooks})=>{
       await  update(book ,  value );
        grapall();
      }
+     const getBook = (id)=>{  
+      
+      
+    }
+  //  getBook("1w4fAwAAQBAJ")
+    //  let lp  = getBook("1w4fAwAAQBAJ") ; 
+    //   (async () => {
+    //   await lp
+    //  })()
+        
+    // console.log(
+    //   
+    // )
+    getBook("1w4fAwAAQBAJ")
+       
     return(
       <ol className="books-grid">
           { Book.length >0 ? (
@@ -39,7 +54,8 @@ const Book = ({Books , setCurrently , setWantToRead , setRead , setBooks})=>{
                           <div  className="book-top">
                             <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${ p.imageLinks  ?  p.imageLinks.smallThumbnail : '' })` }}></div>
                             <div className="book-shelf-changer">
-                              <select value={p.shelf} onChange ={(e) => {return statusHandler(e,p)} } >
+                              <select value = {p.shelf}                              
+                               onChange ={(e) => {return statusHandler(e,p)} } >
                                 <option value="move" disabled>Move to...</option>
                                 <option  value="currentlyReading"> currently Reading </option>
                                 <option value="wantToRead">Want to Read</option>

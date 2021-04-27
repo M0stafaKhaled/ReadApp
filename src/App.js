@@ -8,16 +8,47 @@ import './App.css'
 
 
 function App  ()  {
-
+var arr1 = [];
+  Array.prototype.insert = function (index, items) {     this.splice.apply(this, [index, 0].concat(items)); }
               const searchp = async(e)=>{
                     const value = e.target.value;
                    if(value.trim()=== '')
-                   setBooks([]);
-                   
+                   setBooks([]);                 
                  try{
-                  const l = await BooksAPI.searchP(value.trim());
-                  if(l.length >0)
-                      setBooks(l);
+                  const l = await BooksAPI.searchP(value);
+                  if(l.length >0)   
+                    { 
+                       //setBooks(l)
+                     for(let i = 0; i <l.length ; i++){
+                                const m =  await BooksAPI.getP(l[i].id);
+      
+                                  // setTimeout(function(){
+                                    
+                                  // } , 100)
+                                  arr1[i] = m ; 
+                                 
+
+                     }
+                      setBooks(arr1)
+                     console.log(arr1)
+                    
+                       
+                       
+                    //  (async()=> { f.map(p  => console.log(p))})()
+                     
+                      //  console.log(f)
+                    //  console.log(  kok)
+                    //  console.log(f);
+                    // let mk = {...f}
+                    // console.log(mk)
+                    // let m = {f}
+                    //    console.log(m)
+                    //   f.map(pp=> console.log(pp))
+                    //  console.log(f.length)
+                      
+                      }
+                    if(l.error)
+                    setBooks([])
 
                       
                  }
@@ -40,7 +71,7 @@ function App  ()  {
                        ) 
                         setRead(read)
               }
-        
+       
       const[showSearchPage , setShowSearchPage] = useState('list');
       const[Books , setBooks] = useState([]); 
       const[Currently ,setCurrently] = useState([]);
